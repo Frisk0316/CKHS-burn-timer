@@ -1,0 +1,145 @@
+{
+  "last_incident": "2026-03-31T00:00:00+08:00",
+  "last_incident_title": "自動偵測：建中生作品以「911為靈感」 惹議學校撤作品道歉了",
+  "auto_updated": true,
+  "last_updated": "2026-04-18T23:46:34.810542+08:00",
+  "incidents": [
+    {
+      "date": "2025-12-31",
+      "title": "建中生 privilege 論述爆發",
+      "desc": "「建中生 privilege」論述在 Threads 上大規模延燒，大量貼文批評建中生以第一志願身份作為 social capital，引爆「特權量表」測驗風潮，自由時報、今周刊、遠見等媒體跟進報導。屬週期性復發型議題，每逢升學季或社會事件後再度延燒。",
+      "sources": [
+        {
+          "label": "Threads @agedsalmon__2012",
+          "url": "https://www.threads.com/@agedsalmon__2012/post/DSra4zYkujA",
+          "type": "threads"
+        },
+        {
+          "label": "Threads @ckpot2025",
+          "url": "https://www.threads.com/@ckpot2025/post/DSxUKLoksad",
+          "type": "threads"
+        },
+        {
+          "label": "自由時報",
+          "url": "https://news.ltn.com.tw/news/life/breakingnews/5294612",
+          "type": "news"
+        },
+        {
+          "label": "今周刊",
+          "url": "https://www.businesstoday.com.tw/article/category/183027/post/202512310040/",
+          "type": "news"
+        },
+        {
+          "label": "遠見雜誌",
+          "url": "https://www.gvm.com.tw/article/127033",
+          "type": "news"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-07",
+      "title": "911藝術展爭議／AIT介入",
+      "desc": "學生藝術展以911雙子星事件為創作素材，遭民眾向 AIT（美國在台協會）檢舉，校方緊急撤展並公開道歉，承諾加強歷史教育。",
+      "sources": [
+        {
+          "label": "Newtalk",
+          "url": "https://newtalk.tw/news/view/2025-12-07/1008432",
+          "type": "news"
+        },
+        {
+          "label": "ETtoday",
+          "url": "https://www.ettoday.net/news/20251207/3079921.htm",
+          "type": "news"
+        },
+        {
+          "label": "自由時報",
+          "url": "https://news.ltn.com.tw/news/Taipei/breakingnews/5270544",
+          "type": "news"
+        },
+        {
+          "label": "聯合新聞網",
+          "url": "https://udn.com/news/story/6898/9187611",
+          "type": "news"
+        },
+        {
+          "label": "中時",
+          "url": "https://www.chinatimes.com/realtimenews/20251207001593-260405",
+          "type": "news"
+        }
+      ]
+    },
+    {
+      "date": "2024-12-28",
+      "title": "麥當勞抵制期間揪團貼文炎上",
+      "desc": "麥當勞員工遭性侵事件引發全台抵制風波期間，某班學生揪團騎腳踏車去吃麥當勞並發文炫耀，遭全網炎上，學長揚言「封殺醫學系面試」，校方道歉。",
+      "sources": [
+        {
+          "label": "ETtoday",
+          "url": "https://www.ettoday.net/news/20241227/2881994.htm",
+          "type": "news"
+        },
+        {
+          "label": "CTWANT",
+          "url": "https://www.ctwant.com/article/386000",
+          "type": "news"
+        },
+        {
+          "label": "聯合新聞網",
+          "url": "https://udn.com/news/story/6898/8454488",
+          "type": "news"
+        },
+        {
+          "label": "中央社",
+          "url": "https://www.cna.com.tw/news/ahel/202412280079.aspx",
+          "type": "news"
+        },
+        {
+          "label": "NOWnews",
+          "url": "https://www.nownews.com/news/6623769",
+          "type": "news"
+        }
+      ]
+    },
+    {
+      "date": "2024-12-26",
+      "title": "校友會菜單性平爭議",
+      "desc": "校友會活動菜單出現「硬拚雅美碟」、「香鮑佐蘿莉」、「韓國妹子軟綿綿」等不雅字眼，引爆性別平等爭議，班聯會緊急發聲明切割，校友會更寄存證信函索賠 13 萬。",
+      "sources": [
+        {
+          "label": "聯合新聞網",
+          "url": "https://udn.com/news/story/6898/8437777",
+          "type": "news"
+        },
+        {
+          "label": "CTWANT",
+          "url": "https://www.ctwant.com/article/386150/",
+          "type": "news"
+        },
+        {
+          "label": "自由時報",
+          "url": "https://news.ltn.com.tw/news/life/breakingnews/4906914",
+          "type": "news"
+        },
+        {
+          "label": "中央社",
+          "url": "https://www.cna.com.tw/news/ahel/202412280136.aspx",
+          "type": "news"
+        },
+        {
+          "label": "風傳媒",
+          "url": "https://www.storm.mg/lifestyle/5296835",
+          "type": "news"
+        }
+      ]
+    }
+  ],
+  "recent_news": [
+    {
+      "date": "2026-03-31",
+      "title": "建中生作品以「911為靈感」 惹議學校撤作品道歉了",
+      "url": "https://news.google.com/rss/articles/CBMiqgRBVV95cUxQdG9CWVI4MllTNmozSXp1ZWlkLWF3RDJRYndfQXI3U1JFQTB5R3VuUTVWZVc5YXRPX01wQjcyZXhpSWNIek85R3p5SG94VF9DalBpek9wejdtRTFnNUtYVVBTNWFOQy1BcHI0NEg2S2tEWk1aTElnZUNmV0RKSE5BNHB2ZU4wX3ZYSzRPdE14QjN6Q2lfZXZ6T0ZXYXBRSnNLSndNdENnQ2pKMGtjdUdqeWN1ZkZlWnVuOFZaTG5ZYW5fUFRRRmsyUFhyVGZZLTIzUW85ZzFzMWhoTGlrZUVSdmgzdFpmUjJkV0E0ZDJ6ZUVhblAyOGxVdUxCc3FVTDN6eHVsOWlwQ1kzODVJQTY5VTBxeHVTXzhnb0QwS0lObDNsOUF1d2NzSUVCRE5HVjkyLTg5Uy1wWkx2dHJQYnlSZUNZdzNTLUZEMjVXenJwT1NrT3RQTzFFNkdvQkNIZ3dzNDNWNHFjUnFMLVBOMjBPUl9sOGxydThyd0dLaFI0MG5oM1Z0T21wNFUySzlZS3BiRTBmVXgzVUJMVTRlNjFaMDJ4bjBHSVBMZXR6RDFuMmdBU25fSUZLYzRKMzhNc21VenlCOGNUZkV2MnNOVFJvVVByX3Jwb1pWcmhCUERKRWRGRzgxdnBaMWxqaDhEZ24yUmpIUjNWVURHRnQwdGd6N3FFLWQ1SnJZYTVoNkZSUjlidXhVZ05hM3NMYndGWjA0M2JJYlV0RXNJZw?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    }
+  ]
+}

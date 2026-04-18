@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>建中炎上計時器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --red: #e63535;
+      --red-dim: #7a1a1a;
+      --amber: #f0a500;
+      --amber-dim: #6b4800;
+      --text: #e8e2d9;
+      --muted: #5a5550;
+      --green: #2db37a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── scanline overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,.18) 3px,
+        rgba(0,0,0,.18) 4px
+      );
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* ── noise grain ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 99;
+      opacity: 0.4;
+    }
+
+    /* ── layout ── */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem 3rem;
+      position: relative;
+    }
+
+    /* ── top status bar ── */
+    .status-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 36px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: .18em;
+      color: rgba(255,255,255,.9);
+      z-index: 50;
+    }
+
+    .status-bar .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #fff;
+      animation: blink 1.2s step-end infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── header ── */
+    .header {
+      margin-top: 36px;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .school-badge {
+      display: inline-block;
+      border: 1.5px solid var(--red);
+      color: var(--red);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: .25em;
+      padding: .3rem .9rem;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .main-title {
+      font-family: 'Bebas Neue', 'Noto Sans TC', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      letter-spacing: .08em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .main-title span {
+      color: var(--red);
+    }
+
+    .subtitle {
+      margin-top: .9rem;
+      font-size: .82rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+    }
+
+    /* ── main counter panel ── */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 760px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .panel::before {
+      content: 'INCIDENT FREE COUNTER';
+      position: absolute;
+      top: -10px;
+      left: 2rem;
+      background: var(--surface);
+      padding: 0 .6rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .22em;
+      color: var(--muted);
+    }
+
+    /* ── timer digits ── */
+    .timer-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+
+    .unit-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .digit {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 13vw, 7.5rem);
+      line-height: 1;
+      color: var(--text);
+      background: #161616;
+      border: 1px solid #222;
+      padding: .1em .25em;
+      min-width: 2ch;
+      text-align: center;
+      position: relative;
+      text-shadow: 0 0 30px rgba(230,53,53,.15);
+      transition: color .2s;
+    }
+
+    .digit::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%; bottom: 0;
+      background: rgba(0,0,0,.25);
+      pointer-events: none;
+    }
+
+    .unit-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .25em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .sep {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 6rem);
+      color: var(--red-dim);
+      line-height: 1;
+      padding-bottom: .35em;
+      user-select: none;
+    }
+
+    /* ── pulse when seconds tick ── */
+    .tick-flash {
+      animation: flash .12s ease-out;
+    }
+    @keyframes flash {
+      0% { color: var(--amber); }
+      100% { color: var(--text); }
+    }
+
+    /* ── info strip ── */
+    .info-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+
+    .info-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .2em;
+      color: var(--muted);
+    }
+
+    .info-value {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .info-value.danger { color: var(--red); }
+    .info-value.safe { color: var(--green); }
+
+    /* ── incident log ── */
+    .log-section {
+      width: 100%;
+      max-width: 760px;
+      margin-top: 2rem;
+    }
+
+    .log-header {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: 1rem;
+    }
+
+    .log-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      color: var(--muted);
+    }
+
+    .log-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .log-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: .9rem 1rem;
+      border-left: 2px solid var(--red-dim);
+      background: #0e0e0e;
+      margin-bottom: .5rem;
+      transition: border-color .2s;
+      cursor: default;
+    }
+
+    .log-entry:hover { border-left-color: var(--red); }
+
+    .log-entry:first-of-type .log-entry-date::after {
+      content: ' ← 最近一次';
+      color: var(--amber);
+      font-size: .7rem;
+    }
+
+    .log-entry-date {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .72rem;
+      color: var(--amber);
+      white-space: nowrap;
+      min-width: 90px;
+      padding-top: .1rem;
+    }
+
+    .log-entry-desc {
+      font-size: .82rem;
+      color: #b0aaa5;
+      line-height: 1.5;
+    }
+
+    /* ── footer ── */
+    .footer {
+      margin-top: 3rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .12em;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── corner decorations ── */
+    .panel .corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--red);
+      border-style: solid;
+    }
+    .panel .corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .panel .corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+    .panel .corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+    .panel .corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+    /* ── total seconds ── */
+    .total-seconds {
+      text-align: center;
+      margin-top: 1.4rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: var(--muted);
+    }
+
+    .total-seconds span {
+      color: var(--green);
+    }
+
+    /* ── search sources panel ── */
+    .search-section {
+      width: 100%;
+      max-width: 760px;
+      margin-top: 2rem;
+    }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: .6rem;
+    }
+
+    .search-card {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      padding: .85rem 1rem;
+      background: #0e0e0e;
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--amber-dim);
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    .search-card:hover {
+      border-left-color: var(--amber);
+      background: #131313;
+    }
+
+    .search-card-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .search-card-title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    .search-card-query {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .68rem;
+      color: #6b6560;
+    }
+
+    .search-note {
+      margin-top: .75rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .1em;
+      color: var(--muted);
+      padding: .6rem .8rem;
+      border: 1px dashed #2a2a2a;
+    }
+
+    .search-note strong { color: var(--amber); }
+
+    /* ── log body wrapper ── */
+    .log-entry-body { flex: 1; min-width: 0; }
+
+    /* ── recent news section ── */
+    .news-section { width: 100%; max-width: 760px; margin-top: 2rem; }
+
+    .news-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: .65rem 1rem;
+      border-left: 2px solid #1a1a1a;
+      background: #0c0c0c;
+      margin-bottom: .3rem;
+      transition: border-color .2s;
+    }
+
+    .news-entry:hover { border-left-color: var(--muted); }
+
+    .news-entry-date {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      color: #3a3530;
+      white-space: nowrap;
+      min-width: 90px;
+      padding-top: .05rem;
+    }
+
+    .news-entry-title {
+      font-size: .78rem;
+      color: #6a6460;
+      text-decoration: none;
+      line-height: 1.4;
+      display: block;
+      transition: color .15s;
+    }
+
+    .news-entry-title:hover { color: var(--muted); }
+
+    .news-entry-source {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .58rem;
+      color: #2e2a25;
+      margin-top: .15rem;
+    }
+
+    .auto-badge {
+      background: var(--amber-dim);
+      color: var(--amber);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .55rem;
+      letter-spacing: .1em;
+      padding: .15rem .45rem;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+
+    .log-empty {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      color: var(--muted);
+      padding: .8rem 1rem;
+      border: 1px dashed #1e1e1e;
+      text-align: center;
+    }
+
+    /* ── incident source links ── */
+    .log-entry-sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .55rem;
+    }
+
+    .log-src {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .08em;
+      color: var(--muted);
+      background: #161616;
+      border: 1px solid #272727;
+      padding: .18rem .55rem;
+      text-decoration: none;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+
+    .log-src:hover {
+      color: var(--amber);
+      border-color: var(--amber-dim);
+    }
+
+    .log-src.threads { border-left: 2px solid #555; }
+    .log-src.threads:hover { border-left-color: var(--amber); }
+
+    @media (max-width: 480px) {
+      .sep { display: none; }
+      .timer-row { gap: .3rem; }
+      .digit { font-size: clamp(2.8rem, 18vw, 5rem); }
+      .info-strip { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span>建國中學炎上事件監控系統 — 即時計時中</span>
+    <div class="dot"></div>
+  </div>
+
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <div class="school-badge">CKSH Incident Tracker v2.0</div>
+      <div class="main-title">建中已經有</div>
+    </div>
+
+    <!-- Main panel -->
+    <div class="panel">
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+
+      <div class="timer-row">
+        <div class="unit-block">
+          <div class="digit" id="days">000</div>
+          <div class="unit-label">天</div>
+        </div>
+        <div class="sep">:</div>
+        <div class="unit-block">
+          <div class="digit" id="hours">00</div>
+          <div class="unit-label">時</div>
+        </div>
+        <div class="sep">:</div>
+        <div class="unit-block">
+          <div class="digit" id="minutes">00</div>
+          <div class="unit-label">分</div>
+        </div>
+        <div class="sep">:</div>
+        <div class="unit-block">
+          <div class="digit" id="seconds">00</div>
+          <div class="unit-label">秒</div>
+        </div>
+      </div>
+
+      <div class="total-seconds" id="totalSec">
+        共計 <span id="totalSecNum">0</span> 秒沒有出事
+      </div>
+
+      <div class="info-strip">
+        <div class="info-item">
+          <div class="info-label">上次炎上日期</div>
+          <div class="info-value danger" id="lastDate">2025-12-07</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">上次事件</div>
+          <div class="info-value" id="lastEvent">911藝術展爭議／AIT介入</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">目前狀態</div>
+          <div class="info-value safe" id="statusText">✓ 平安無事</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 沒有被炎上 label -->
+    <div style="width:100%;max-width:760px;text-align:right;margin-top:.9rem;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4.5vw,2.6rem);letter-spacing:.07em;color:var(--text);">
+        沒有被 <span style="color:var(--red);">炎上</span> 了
+      </span>
+    </div>
+
+    <!-- Search sources -->
+    <div class="search-section">
+      <div class="log-header">
+        <span class="log-title">SEARCH SOURCES — 炎上偵測來源</span>
+        <div class="log-line"></div>
+      </div>
+
+      <div class="search-grid">
+        <a class="search-card"
+           href="https://www.threads.net/search?q=%E5%BB%BA%E4%B8%AD%E7%82%8E%E4%B8%8A"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">Threads</span>
+          <span class="search-card-title">建中炎上</span>
+          <span class="search-card-query">threads.net › 建中炎上</span>
+        </a>
+        <a class="search-card"
+           href="https://www.threads.net/search?q=%E5%BB%BA%E4%B8%AD%E7%94%9F+privilege"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">Threads</span>
+          <span class="search-card-title">建中生 privilege</span>
+          <span class="search-card-query">threads.net › 建中生 privilege</span>
+        </a>
+        <a class="search-card"
+           href="https://www.threads.net/search?q=%E5%BB%BA%E4%B8%AD%E6%89%B9%E8%A9%95"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">Threads</span>
+          <span class="search-card-title">建中批評</span>
+          <span class="search-card-query">threads.net › 建中批評</span>
+        </a>
+        <a class="search-card"
+           href="https://news.google.com/search?q=%E5%BB%BA%E4%B8%AD+%E7%82%8E%E4%B8%8A&hl=zh-TW"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">Google 新聞</span>
+          <span class="search-card-title">建中 炎上</span>
+          <span class="search-card-query">news.google.com › 建中 炎上</span>
+        </a>
+        <a class="search-card"
+           href="https://news.google.com/search?q=%E5%BB%BA%E4%B8%AD+%E7%94%9F+%E6%89%B9%E8%A9%95&hl=zh-TW"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">Google 新聞</span>
+          <span class="search-card-title">建中生 批評</span>
+          <span class="search-card-query">news.google.com › 建中生 批評</span>
+        </a>
+        <a class="search-card"
+           href="https://www.ptt.cc/bbs/CKSH/index.html"
+           target="_blank" rel="noopener">
+          <span class="search-card-label">PTT</span>
+          <span class="search-card-title">CKSH 版</span>
+          <span class="search-card-query">ptt.cc › /bbs/CKSH</span>
+        </a>
+      </div>
+
+      <div class="search-note">
+        <strong>使用說明：</strong>
+        若以上搜尋出現新的炎上事件，請更新 <code>LAST_INCIDENT</code> 日期及下方事件紀錄，
+        以 Threads 與新聞雙重比對確認事件時間點。
+      </div>
+    </div>
+
+    <!-- Incident log -->
+    <div class="log-section">
+      <div class="log-header">
+        <span class="log-title">INCIDENT LOG</span>
+        <div class="log-line"></div>
+      </div>
+
+      <div id="incident-log-entries">
+        <div class="log-empty">載入中…</div>
+      </div>
+    </div>
+
+    <!-- Auto-detected recent news -->
+    <div class="news-section" id="news-section">
+      <div class="log-header">
+        <span class="log-title">RECENT SIGNALS — 自動偵測新聞</span>
+        <div class="log-line"></div>
+      </div>
+      <div id="recent-news-list">
+        <div class="log-empty">載入中…</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      資料來源：Google News RSS、Threads 搜尋連結、各大網路媒體（CTWANT、Newtalk、自由時報等）、PTT CKSH 版｜本站僅作統計用途<br>
+      本站架設於 GitHub Pages｜計時以台灣時區（UTC+8）為準<br>
+      新聞自動更新時間：<span id="last-updated">—</span>
+    </div>
+  </div>
+
+  <script>
+    // ── Timer ────────────────────────────────────────────────────────────────
+    // Default date used before incidents.json loads
+    let LAST_INCIDENT = new Date('2025-12-31T00:00:00+08:00').getTime();
+
+    const $days        = document.getElementById('days');
+    const $hours       = document.getElementById('hours');
+    const $minutes     = document.getElementById('minutes');
+    const $seconds     = document.getElementById('seconds');
+    const $totalSecNum = document.getElementById('totalSecNum');
+
+    function pad(n, len = 2) { return String(n).padStart(len, '0'); }
+
+    let prevSec = -1;
+    function update() {
+      const diff = Math.max(0, Math.floor((Date.now() - LAST_INCIDENT) / 1000));
+      $days.textContent    = pad(Math.floor(diff / 86400), 3);
+      $hours.textContent   = pad(Math.floor((diff % 86400) / 3600));
+      $minutes.textContent = pad(Math.floor((diff % 3600) / 60));
+      const secs = diff % 60;
+      $seconds.textContent = pad(secs);
+      if (secs !== prevSec) {
+        $seconds.classList.remove('tick-flash');
+        void $seconds.offsetWidth;
+        $seconds.classList.add('tick-flash');
+        prevSec = secs;
+      }
+      $totalSecNum.textContent = diff.toLocaleString('zh-TW');
+    }
+
+    // ── Render: incident log ─────────────────────────────────────────────────
+    function renderIncidents(incidents) {
+      const el = document.getElementById('incident-log-entries');
+      if (!incidents || !incidents.length) {
+        el.innerHTML = '<div class="log-empty">尚無事件紀錄</div>';
+        return;
+      }
+      // Sort newest-first
+      const sorted = [...incidents].sort((a, b) => b.date.localeCompare(a.date));
+      el.innerHTML = sorted.map((inc, i) => {
+        const srcs = (inc.sources || []).map(s =>
+          `<a class="log-src${s.type === 'threads' ? ' threads' : ''}"
+              href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
+        ).join('');
+        return `
+          <div class="log-entry">
+            <div class="log-entry-date">${inc.date}</div>
+            <div class="log-entry-body">
+              <div class="log-entry-desc">${inc.desc}</div>
+              ${srcs ? `<div class="log-entry-sources">${srcs}</div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // ── Render: auto-detected news ───────────────────────────────────────────
+    function renderRecentNews(items) {
+      const el = document.getElementById('recent-news-list');
+      if (!items || !items.length) {
+        el.innerHTML = '<div class="log-empty">尚無自動偵測到的新聞，待 GitHub Actions 每日執行後更新</div>';
+        return;
+      }
+      el.innerHTML = items.slice(0, 30).map(item => `
+        <div class="news-entry">
+          <div class="news-entry-date">${item.date}</div>
+          <div>
+            <a class="news-entry-title" href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+            <div class="news-entry-source">
+              ${item.source}${item.high_confidence ? ' <span class="auto-badge">INCIDENT</span>' : ''}
+            </div>
+          </div>
+        </div>`
+      ).join('');
+    }
+
+    // ── Load incidents.json ──────────────────────────────────────────────────
+    async function loadData() {
+      try {
+        const res = await fetch('incidents.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Advance timer to latest incident date from JSON
+        LAST_INCIDENT = new Date(data.last_incident).getTime();
+
+        // Update info strip
+        document.getElementById('lastDate').textContent = data.last_incident.slice(0, 10);
+        if (data.last_incident_title) {
+          document.getElementById('lastEvent').textContent = data.last_incident_title;
+        }
+        if (data.auto_updated) {
+          const badge = document.createElement('span');
+          badge.className = 'auto-badge';
+          badge.textContent = 'AUTO';
+          document.getElementById('lastDate').after(badge);
+        }
+
+        renderIncidents(data.incidents || []);
+        renderRecentNews(data.recent_news || []);
+
+        if (data.last_updated) {
+          document.getElementById('last-updated').textContent =
+            data.last_updated.slice(0, 16).replace('T', ' ') + ' (台灣時間)';
+        }
+      } catch (e) {
+        console.warn('incidents.json 載入失敗，使用預設資料', e);
+        renderIncidents([]);
+        renderRecentNews([]);
+      }
+    }
+
+    update();
+    setInterval(update, 500);
+    loadData();
+  </script>
+</body>
+</html>
