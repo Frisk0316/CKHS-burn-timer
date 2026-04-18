@@ -165,7 +165,6 @@
       align-items: flex-end;
       justify-content: center;
       gap: .5rem;
-      flex-wrap: wrap;
     }
 
     .unit-block {
@@ -177,7 +176,7 @@
 
     .digit {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 13vw, 7.5rem);
+      font-size: clamp(1.8rem, 7vw, 5rem);
       line-height: 1;
       color: var(--text);
       background: #161616;
@@ -209,7 +208,7 @@
 
     .sep {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 10vw, 6rem);
+      font-size: clamp(1.4rem, 5vw, 3.8rem);
       color: var(--red-dim);
       line-height: 1;
       padding-bottom: .35em;
@@ -515,10 +514,10 @@
     .log-src.threads { border-left: 2px solid #555; }
     .log-src.threads:hover { border-left-color: var(--amber); }
 
+    .info-value.warning { color: var(--amber); }
+
     @media (max-width: 480px) {
-      .sep { display: none; }
-      .timer-row { gap: .3rem; }
-      .digit { font-size: clamp(2.8rem, 18vw, 5rem); }
+      .timer-row { gap: .2rem; }
       .info-strip { flex-direction: column; gap: 1rem; }
     }
   </style>
@@ -636,13 +635,6 @@
           <span class="search-card-title">建中生 批評</span>
           <span class="search-card-query">news.google.com › 建中生 批評</span>
         </a>
-        <a class="search-card"
-           href="https://www.ptt.cc/bbs/CKSH/index.html"
-           target="_blank" rel="noopener">
-          <span class="search-card-label">PTT</span>
-          <span class="search-card-title">CKSH 版</span>
-          <span class="search-card-query">ptt.cc › /bbs/CKSH</span>
-        </a>
       </div>
 
       <div class="search-note">
@@ -696,10 +688,12 @@
 
     function pad(n, len = 2) { return String(n).padStart(len, '0'); }
 
+    const $status = document.getElementById('statusText');
     let prevSec = -1;
     function update() {
       const diff = Math.max(0, Math.floor((Date.now() - LAST_INCIDENT) / 1000));
-      $days.textContent    = pad(Math.floor(diff / 86400), 3);
+      const days = Math.floor(diff / 86400);
+      $days.textContent    = pad(days, 3);
       $hours.textContent   = pad(Math.floor((diff % 86400) / 3600));
       $minutes.textContent = pad(Math.floor((diff % 3600) / 60));
       const secs = diff % 60;
@@ -711,6 +705,17 @@
         prevSec = secs;
       }
       $totalSecNum.textContent = diff.toLocaleString('zh-TW');
+
+      if (days <= 3) {
+        $status.className = 'info-value danger';
+        $status.textContent = '🔥 炎上中！';
+      } else if (days <= 14) {
+        $status.className = 'info-value warning';
+        $status.textContent = '△ 餘波盪漾';
+      } else {
+        $status.className = 'info-value safe';
+        $status.textContent = '✓ 平安無事';
+      }
     }
 
     // ── Render: incident log ─────────────────────────────────────────────────
@@ -768,16 +773,11 @@
         // Advance timer to latest incident date from JSON
         LAST_INCIDENT = new Date(data.last_incident).getTime();
 
-        // Update info strip
+        // Update info strip — always use the most recent curated incident title
         document.getElementById('lastDate').textContent = data.last_incident.slice(0, 10);
-        if (data.last_incident_title) {
-          document.getElementById('lastEvent').textContent = data.last_incident_title;
-        }
-        if (data.auto_updated) {
-          const badge = document.createElement('span');
-          badge.className = 'auto-badge';
-          badge.textContent = 'AUTO';
-          document.getElementById('lastDate').after(badge);
+        const sortedInc = [...(data.incidents || [])].sort((a, b) => b.date.localeCompare(a.date));
+        if (sortedInc.length) {
+          document.getElementById('lastEvent').textContent = sortedInc[0].title;
         }
 
         renderIncidents(data.incidents || []);

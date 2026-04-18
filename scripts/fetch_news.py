@@ -167,7 +167,9 @@ def main() -> None:
     if high_conf:
         latest_date = high_conf[0]['date']
         current_last = data['last_incident'][:10]
-        if latest_date > current_last:
+        article_dt = datetime.strptime(latest_date, '%Y-%m-%d').replace(tzinfo=TW)
+        recency_cutoff = datetime.now(TW) - timedelta(days=14)
+        if latest_date > current_last and article_dt >= recency_cutoff:
             data['last_incident'] = f"{latest_date}T00:00:00+08:00"
             data['last_incident_title'] = f"自動偵測：{high_conf[0]['title']}"
             data['auto_updated'] = True
