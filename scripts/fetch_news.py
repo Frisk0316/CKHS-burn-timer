@@ -50,7 +50,7 @@ HIGH_CONF_RE = re.compile(
 
 TW = timezone(timedelta(hours=8))
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'incidents.json')
-MAX_AGE_DAYS = 60
+MAX_AGE_DAYS = 14
 RECENT_NEWS_CAP = 100
 
 DOMAIN_LABELS = {
