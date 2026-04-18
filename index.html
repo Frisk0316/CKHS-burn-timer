@@ -766,7 +766,7 @@
     // ── Load incidents.json ──────────────────────────────────────────────────
     async function loadData() {
       try {
-        const res = await fetch('incidents.json');
+        const res = await fetch('incidents.json', { cache: 'no-cache' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
