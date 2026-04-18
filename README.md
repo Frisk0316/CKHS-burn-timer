@@ -1,80 +1,102 @@
-# 🔥 建中有多少天沒有被炎上計時器
+# 建中有多少天沒有被炎上計時器
 
-> 即時追蹤建國中學距離上次炎上已過了多久（精確到秒）
+即時追蹤建國中學距離上次炎上已過了多久（精確到秒）。
 
-## 網站預覽
-
-計時器會顯示：
-- **天 / 時 / 分 / 秒** 四格計時
-- 最近一次炎上的日期與事件說明
-- 歷史炎上事件紀錄
-- **炎上偵測來源**：Threads 搜尋連結（建中炎上、建中生 privilege、建中批評）、Google 新聞、PTT CKSH 版
+**[→ 線上版本](https://frisk0316.github.io/CKHS-burn-timer/)**
 
 ---
 
-## 🚀 部署到 GitHub Pages（五分鐘完成）
+## 功能
 
-### 方法一：直接上傳（最簡單）
+- 天 / 時 / 分 / 秒 即時計時
+- 歷史炎上事件紀錄，附新聞與貼文來源連結
+- **每日自動更新**：GitHub Actions 每天從 Google News RSS 搜尋相關報導，偵測到新炎上事件時自動重置計時器
+- 炎上偵測來源快速搜尋連結（Threads、Google 新聞、PTT）
 
-1. 前往 [github.com](https://github.com) 並登入
-2. 點右上角 **「+」→「New repository」**
-3. 填入 Repository name，例如 `cksh-timer`
-4. 選 **Public**，其他預設即可，點 **「Create repository」**
-5. 在新頁面點 **「uploading an existing file」**
-6. 把 `index.html` 拖曳上去，然後按 **「Commit changes」**
-7. 前往 **Settings → Pages**（左側選單）
-8. Branch 選 `main`，資料夾選 `/ (root)`，按 **Save**
-9. 等約 1 分鐘，網址就會出現在頁面上：
+---
+
+## 自動更新機制
 
 ```
-https://你的帳號.github.io/cksh-timer/
+每天 10:00（台灣時間）
+  └─ GitHub Actions 執行 scripts/fetch_news.py
+       ├─ 搜尋 Google News RSS（建中炎上、建中批評、privilege…等 10 組查詢）
+       ├─ 過濾含關鍵字的文章，寫入 incidents.json → recent_news
+       └─ 偵測到「炎上／道歉／撤展」等高信心度關鍵字
+            └─ 自動更新 last_incident 日期，網頁計時器重置
 ```
 
-### 方法二：用 Git 指令
+若要手動新增事件，直接編輯 `incidents.json`，無需動 HTML。
+
+---
+
+## 本地執行
 
 ```bash
-git init
-git add index.html
-git commit -m "init: 建中炎上計時器"
-git remote add origin https://github.com/你的帳號/cksh-timer.git
+# 安裝依賴
+pip install -r requirements.txt
+
+# 手動執行一次新聞抓取
+python scripts/fetch_news.py
+
+# 本地預覽（需用 HTTP server，不能直接開 HTML 檔）
+python -m http.server 8080
+# 開啟 http://localhost:8080
+```
+
+---
+
+## 部署到 GitHub Pages
+
+```bash
+git clone https://github.com/你的帳號/你的-repo.git
+cd 你的-repo
+# 複製本專案所有檔案進去
+
+git add .
+git commit -m "init"
 git push -u origin main
-# 然後到 Settings → Pages 開啟即可
 ```
+
+接著到 **Settings → Pages → Branch: main / root → Save**，約 1 分鐘後上線。
+
+GitHub Actions 會自動每天執行，無需額外設定（使用內建的 `GITHUB_TOKEN`）。
 
 ---
 
-## 🗓️ 更新炎上日期
-
-當建中又發生新的炎上事件，打開 `index.html`，找到這一行：
-
-```js
-const LAST_INCIDENT = new Date('2025-12-07T00:00:00+08:00').getTime();
-```
-
-把日期改成新的炎上日期（格式：`YYYY-MM-DDT00:00:00+08:00`），然後 commit 即可。
-
-同時在 HTML 裡的 `<!-- Incident log -->` 區段新增一條紀錄。
-
----
-
-## 📋 目前事件紀錄
+## 事件紀錄
 
 | 日期 | 事件 |
 |------|------|
-| 2025-12-07 | 學生以911雙子星為藝術素材，AIT介入，校方撤展道歉 |
-| 2024-12-28 | 麥當勞抵制風波期間，學生揪團去吃並PO網炎上 |
-| 2024-12-26 | 校友會菜單出現不雅字眼，引爆性平爭議 |
-| 持續中 | 「建中生 privilege」論述：Threads 週期性出現批評建中生精英意識貼文 |
+| 2025-12-31 | 建中生 privilege 論述在 Threads 爆發，引爆特權量表風潮 |
+| 2025-12-07 | 學生藝術展以 911 雙子星為素材，AIT 介入，校方撤展道歉 |
+| 2024-12-28 | 麥當勞抵制風波期間，學生揪團去吃並 PO 網炎上 |
+| 2024-12-26 | 校友會菜單出現不雅字眼，引爆性平爭議，索賠 13 萬 |
+
+---
+
+## 專案結構
+
+```
+├── index.html               # 前端頁面（從 incidents.json 動態載入資料）
+├── incidents.json           # 資料來源：事件紀錄 + 自動抓取的新聞
+├── scripts/
+│   └── fetch_news.py        # 新聞抓取腳本
+├── .github/
+│   └── workflows/
+│       └── update-news.yml  # 每日排程
+└── requirements.txt
+```
 
 ---
 
 ## 技術說明
 
-- 純靜態 HTML + CSS + JS，無任何後端
-- 字體使用 Google Fonts（Bebas Neue + Share Tech Mono + Noto Sans TC）
-- 計時基準為台灣時間 UTC+8
-- 每 500ms 更新一次，秒數跳動時有閃爍動畫
+- 純靜態前端（HTML + CSS + JS），資料由 `fetch('incidents.json')` 動態載入
+- 字體：Google Fonts（Bebas Neue、Share Tech Mono、Noto Sans TC）
+- 計時基準：台灣時間 UTC+8，每 500ms 更新
+- 後端：GitHub Actions（免費額度內）+ Google News RSS（免費、無需 API key）
 
 ---
 
-*資料來源：Threads 社群搜尋、CTWANT、Newtalk、自由時報等各大網路媒體、PTT CKSH 版｜本站僅作幽默統計用途*
+*本站僅作幽默統計用途　資料來源：Google News RSS、Threads、各大網路媒體、PTT CKSH 版*
