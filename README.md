@@ -99,4 +99,4 @@ GitHub Actions 會自動每天執行，無需額外設定（使用內建的 `GIT
 
 ---
 
-*本站僅作幽默統計用途　資料來源：Google News RSS、Threads、各大網路媒體、PTT CKSH 版*
+*本站僅作幽默統計用途　資料來源：Google News RSS、Threads、各大網路媒體*
