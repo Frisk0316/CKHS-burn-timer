@@ -2,7 +2,7 @@
   "last_incident": "2025-12-31T00:00:00+08:00",
   "last_incident_title": "建中生 privilege 論述 / 特權量表風潮",
   "auto_updated": false,
-  "last_updated": "2026-04-24T11:05:11.303660+08:00",
+  "last_updated": "2026-04-25T11:03:44.375750+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -133,5 +133,20 @@
       ]
     }
   ],
-  "recent_news": []
+  "recent_news": [
+    {
+      "date": "2026-04-24",
+      "title": "讀建中就是一種特權? 他曝「成就不會努力就得到」： 有優勢不可恥",
+      "url": "https://news.google.com/rss/articles/CBMijwVBVV95cUxPQ1lqQkdMNUZxMkFydVQ3QXFvNlBia19TOXlWUGtfZDc4aG5hRWdQcnRiQ3JUT1JJa0JFM0NrV0w5YjVqUVk5aW5BSENhTk1qZzUzNmdoNlFQUk9aUEFwMnFMc01oWGh1b1gzMXdlYU5IMWdoUThzcW5IRGNNQWN3cWZ2aGRQTUJIZG0yemVUdG5FbXFwczhyQ0FhcVVSOVdvYWE0SUlqVlk0SWNXRkhiaWpZSkYxV29vQUxNVTI5R3FZZGVCci11MEdJa3d5UTZsUmFHaldaMXk1ZXQzdVQyTXhpWFF4SGNvN0JMa2NpRmFKX3gxMG1SQ0plQU5LVGl4aUJ5VXdFc2phbVJINDhGVWhWWFJLOTlIWTR3Sy02WjQ1TlNsZFJ4MENIUXUxMFpzRFl2bjZ5ZVMyMl9XcG4zOTNvNDQtNmJCV1BLV05EUENveGFHNjhqRUZfQzVsQ0FBakdOYklDRFQ1RWk5S0ozNXdlQVM0ZnliUFBxTHlNMHY1eFFzckhFMFlXVEVUMVhWb1ZfemQzcnJFUV91MjN0YWE5VERRQlhQOEVjZ0JYdkZidlRTaVlrMy1ncGVGejBvY01QcHZDWGhIUy15c1Y2RmYwek1NLTI5Q2w5M3BBMXNZWGFnTEI0UzVNRURQWWdZNm1PNUtKdFY0SjF3UXlHODVaUWYtOWF3bmViSXBrQXQ2LTZwQ1BPV0tEUTRNYldiZkFYWnNaX0YtWWdzMllXVXZ1UTlfeG51T242cVozNW0xTkJXeVdwT3VhZ0I2M3VBWGxxVHJ6RzVZMHRyU2hBU1BnWTE0Y1p3U3hKZkRDSTBRdWJJdTloaFg2VnB5bGVCeGZrNUJnZEdaQVc0U3dZ?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-04-12",
+      "title": "讀《寫給每個人的社會學讀本》：特權該從何說起？有「霹靂力矩」是我的錯嗎？",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5PMjBjTXpDbGxmRHBJQ05HQko1NVh4anR0dEpObVVKek45blE3eEZMZHJ0UVZ2cTZKUHg0dWxqZlN4WWIyY1diQUgxSXVsY2xoTG5EYw?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    }
+  ]
 }
