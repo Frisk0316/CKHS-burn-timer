@@ -1,8 +1,8 @@
 {
-  "last_incident": "2025-12-31T00:00:00+08:00",
-  "last_incident_title": "建中生 privilege 論述 / 特權量表風潮",
-  "auto_updated": false,
-  "last_updated": "2026-05-24T11:06:49.497397+08:00",
+  "last_incident": "2026-05-23T00:00:00+08:00",
+  "last_incident_title": "自動偵測：建中生作品玩地獄梗遭炎上? 911雙子星當素材驚動AIT 校方急道歉",
+  "auto_updated": true,
+  "last_updated": "2026-05-25T11:08:28.314364+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,13 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-05-23",
+      "title": "建中生作品玩地獄梗遭炎上? 911雙子星當素材驚動AIT 校方急道歉",
+      "url": "https://news.google.com/rss/articles/CBMirgRBVV95cUxNYlYyMElUZmJGaW5SSjRnUVpXOXI0MEcxQXl0VjVBOFdMZmdSZVc5V3RWYko2REUwMTZfX01RSTdyT19RcmJfamViTkNITVc5eGVZWGRyVXhMVEZmM1VwOG9YWHJaTi1qaHBzODg2VFBPeDlSVWhvMUlaQU0xLWpBLVNmdzBEMjV1bi1mc2lhdGc0Y0pSaTRsUVRxelpVZTlmWU5MV1BfdFRxRm5MQU56dUVpOThqTUotZngwNTZ0aW1BVkE5OGh3VzF1UzNSTXJCdVBkQlpOeDJVS2pfVTRKUFlWd2x3OHFOWVJ5blFUbG5QdFFEaWEzaW1hcHJQd3g3d3dpSkFjbDZ2OHdfRk9wLWd5blI5bHFLZEJsQVNKUVQwRFVVZVp3dHEyVU9faERwenljUVRzb1g5VnpEeEFwanVORlllY3QxQVBMOVh6STZReDZVa1Z3dEkzTzNIMVp6VDc1Um1FZVBHQUlTSFhmNExMc2RMTEptb0Nrd2dkY2JVT1pMTXdRMTZ1VlNFM25UTVF1OG5BVW5Ha0Nmc1QyWTBKSk56TEN1ek9yODYzcU1hLWM3M0hzYXVCTUtzNnExT0NDSVQ5Q281MHdreXBMQ3kybENhQ0JHdk1fTDNoNENOcDhBM0R5U2ZKejlPQ213cDNtdVptZzRHNHBHbFZHUUJWb29Vcl8yQVJkTlJSVVpSYjd2VnY0RjNpRVBzdmR3SldoOFVoSjN4UlZrenc?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    },
     {
       "date": "2026-05-14",
       "title": "違建拆除假牙補助惹議 市議員詹江村呼籲市府嚴查",
