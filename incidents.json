@@ -1,8 +1,8 @@
 {
-  "last_incident": "2026-05-23T00:00:00+08:00",
-  "last_incident_title": "自動偵測：建中生作品玩地獄梗遭炎上? 911雙子星當素材驚動AIT 校方急道歉",
-  "auto_updated": false,
-  "last_updated": "2026-07-07T14:03:02.783745+08:00",
+  "last_incident": "2026-07-08T00:00:00+08:00",
+  "last_incident_title": "自動偵測：建中校友宴菜單引戰！北一女大學姊怒轟「物化女性」無恥　要求公開道歉",
+  "auto_updated": true,
+  "last_updated": "2026-07-08T13:16:58.275565+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,34 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-07-08",
+      "title": "建中校友宴菜單引戰！北一女大學姊怒轟「物化女性」無恥　要求公開道歉",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE43NmZTam9GbVN3RkZFd254SDFyRXNNdERYWUthWjRLektjUUJQQXUxcHRKQlhqeElQSnF1bXpoMzNwZXVlaTZ5bdIBTEFVX3lxTE91ME9RLUZqdngtdGFPLTVjeFp4UXhjcU1qSkRQQXhzT3RtMjhTVy1RUHVaVmdZaUo5RHkxVl9xOVJqMjhCcEd6WkdGbmw?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    },
+    {
+      "date": "2026-07-07",
+      "title": "各界看法／建中生假冒受訪爭議 老學長：人不輕狂枉少年！",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE84ZHllREZBY0lYcHhYVGZ4emJnRVYtMU9JR2s1UUhnWElnV0pjTzgyaFY1aS1ISEV5RW9LcWpNYlc4Q256QVpr?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-07-06",
+      "title": "老師嘲笑幫農小孩挨批 農夫爸爸：是我們會錯意！",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1taDR1UWVrNnE3MFluRjg4TDRXSEdwb3BRd2ZIRE9rVm5QT1dGNXRieDhFZEV1QzQ5OWgwTHhKM0JYLWcyWnNv?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-07-06",
+      "title": "「民主」發言惹議柯P勸建中校長：對別人好就是對自己好| 政治",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1zMUpDR1JqSVJSVGpEY3FxeGVZckRiMkpNbWNHdk02LWYtTFNTejI4aERTVUxvV0p2M3lpblZjUXRtYS14b0pB?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
     {
       "date": "2026-07-06",
       "title": "中工建案銷售挨批灌水！雲宇宙賣75億實登卻僅2億　小股東憤而具名檢舉",
