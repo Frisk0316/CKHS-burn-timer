@@ -1,8 +1,8 @@
 {
-  "last_incident": "2026-07-08T00:00:00+08:00",
-  "last_incident_title": "自動偵測：建中校友宴菜單引戰！北一女大學姊怒轟「物化女性」無恥　要求公開道歉",
-  "auto_updated": false,
-  "last_updated": "2026-07-09T13:59:47.959140+08:00",
+  "last_incident": "2026-07-10T00:00:00+08:00",
+  "last_incident_title": "自動偵測：建中生吃麥當勞遭炎上！網怒批沒同理心　校方緊急道歉：學生已深刻反省",
+  "auto_updated": true,
+  "last_updated": "2026-07-10T13:58:50.231996+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,20 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-07-10",
+      "title": "建中生吃麥當勞遭炎上！網怒批沒同理心　校方緊急道歉：學生已深刻反省",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1Vd0FmZmYzRXJZbzl4UmVILWIyZ2JaeUI0N0ZncUdUU1ZoLWhzbVRLQ0JTd2g0SVNXQklDT0RWMDhlbmZiSi01btIBTEFVX3lxTE9xZl9Vakp5Vy1HUzFuMEpRSkM0Z29QN2Q1Y1FDZlUzdlZpdENGcDEtemFkSmxoNWNmck5Wd251RHpuVUVwVHB5MGpPYmo?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    },
+    {
+      "date": "2026-07-08",
+      "title": "名校蒙羞！康輔社拍片「揮刀飆國罵」挨批| 生活",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBqSV9VYVlpbUR6WmFQUERwcEwzRWNOWXhfY2Y5Q1ZpNk5KUFhQSUFaeC1tem5yVmlnVUJpeU5paTVibmJmTDJB?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
     {
       "date": "2026-07-08",
       "title": "這是青春！建中生假冒受訪爭議老學長挺學弟：我偷過船| 生活",
