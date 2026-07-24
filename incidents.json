@@ -1,8 +1,8 @@
 {
-  "last_incident": "2026-07-10T00:00:00+08:00",
-  "last_incident_title": "自動偵測：建中生吃麥當勞遭炎上！網怒批沒同理心　校方緊急道歉：學生已深刻反省",
-  "auto_updated": false,
-  "last_updated": "2026-07-23T13:20:16.481400+08:00",
+  "last_incident": "2026-07-23T00:00:00+08:00",
+  "last_incident_title": "自動偵測：建中吃麥當勞遭炎上！學長嗆醫學系封殺　他反擊：支持被正義蹂躪的分店",
+  "auto_updated": true,
+  "last_updated": "2026-07-24T13:16:03.764043+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,13 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-07-23",
+      "title": "建中吃麥當勞遭炎上！學長嗆醫學系封殺　他反擊：支持被正義蹂躪的分店",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE04VGJWdDNCRnBZTS1uOXRBU1p5OE52RWk2WENpeTJ4S293VVBtMkZ2OWNURUktdDFZZUZFZ1QzeDU5dTdyN2tFStIBTEFVX3lxTFBfZ1BEX0hTRXk3XzNqWlZHRUY4dmhreFFHa3VGb1FpX2lMX0x0RXB4Qm5PUVp4TVY5eWN6bkZ6eW1xYlhKRG9YVUJlVUQ?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    },
     {
       "date": "2026-07-10",
       "title": "建中生吃麥當勞遭炎上！網怒批沒同理心　校方緊急道歉：學生已深刻反省",
