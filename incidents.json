@@ -1,8 +1,8 @@
 {
-  "last_incident": "2026-08-30T00:00:00+08:00",
-  "last_incident_title": "自動偵測：建中男贏2.6萬票！高校女神卻被並列第一　正妹出面道歉",
-  "auto_updated": false,
-  "last_updated": "2026-09-03T14:45:52.353938+08:00",
+  "last_incident": "2026-09-03T00:00:00+08:00",
+  "last_incident_title": "自動偵測：蔣萬安子交換生風波炎上　黃揚明：這種天真證明還沒要選總統",
+  "auto_updated": true,
+  "last_updated": "2026-09-04T14:51:02.613251+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,69 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-09-03",
+      "title": "蔣萬安子交換生風波炎上　黃揚明：這種天真證明還沒要選總統",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5TMk1GMFBLVko1bldnSzBiOXo0aDRLcS1KMDBmblBBT1dnYlREb0JIYWM2eHFfU0QxdmxxZ1R3R2lTbGZoUHM2UmJnYllMSW5sMGfSAVJBVV95cUxOUzJNRjBQS1ZKNW5XZ0swYjl6NGg0S3EtSjAwZm5QQU9XZ2JURG9CSGFjNnhxX1NEMXZscWdUd0dpU2xmaFBzNlJiZ2JZTElubDBn?oc=5",
+      "source": "google.com",
+      "high_confidence": true
+    },
+    {
+      "date": "2026-09-03",
+      "title": "蔣萬安愛子赴美交換爆爭議　他提醒：特權不一定等於違法",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE40UzVCbGVEbE5sYnQ1dGw0ZS1lU0ZwaUpZbUMxUWtOMTlENVcyM2VoUGdNUGNhQmREVnRUY0ZoYkpmUE9CNWhLOXJGTVPSAUxBVV95cUxONFM1QmxlRGxObGJ0NXRsNGUtZVNGcGlKWW1DMVFrTjE5RDVXMjNlaFBnTVBjYUJkRFZ0VGNGaGJKZlBPQjVoSzlyRk1T?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-03",
+      "title": "【騰焰飛芒】蔣萬安的祕密：享受特權就是爽",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5Oa0hvS3hXcTNxbXQwVEhDZGZtSmRUMUtjVzNNcDZKY3FscDhMTE5hRjlFMDg5TWUtYmktdEtyTlI0UjNmSTNwOVVDZ0dRRTI4c1E?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-03",
+      "title": "蔣萬安兒錄取交換生惹特權爭議 四叉貓酸：家長欄簽市長名字即可 | 自由電子報",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1yZE5md0NMMUZzaGt2MW5ia0ZjUGhpN2p0cWExNjFpWHk5RGNNV2V3b3ZwVzdvVmNVd3dSeHZxQzZ0Mm1hYmFFc0ltc3gwSkYwc3JTZ1J3?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-03",
+      "title": "蔣萬安長子赴美交換爆特權爭議！存股網紅22字不忍發聲：禍不及妻兒",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE92blVreHdPSzEwM0hXemhDRTk2cTBpMnhwQ2xnb2Q4ZFpKUmFienpOajBoTVh4ajhRVUhxNEgtYktaaEFmNk11WkRB?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-03",
+      "title": "蔣萬安兒子錄取交換生惹議！學者挖政大推甄史狠酸：水分很多",
+      "url": "https://news.google.com/rss/articles/CBMijgNBVV95cUxNdV9kay1NTDVqVGdzcjZBcFFOT2Z4Z0V4MWFGRUNXMDNiOFA3SVhjdWpQdnRRV0lMQ1J6QlJqN29adVZGdk9Ia2R5dVNRZjhtSnQyOWhmdmN5bThBTkJ4aFFuOGNWNTN1UFQ5aXR0ZjUtdWdiMXZ5LXQ2R2NuRjdLRnV2ZzhHUVgzOTREOG4tamF6NmRCcHQ2ampYeWF5a20tMmZ5dXRSNXpObUIyRXBiVWZWUUJFN1dGeVdReTFPOW9WZVdBTmZXZXY1bXBfaWFTVE5OU0FNaG1BenJFMjNweDR2LXBTWmh3Y1RmaVhzemNralo4TC1VNHI0MzE3X2dDZExpRzN1SFd2ZlRRelpHcWRhWjNHb1lZN29Tb3ROeXh4MmNPU29Vb2M0VkRtOEd6eU81QjZUSlJPdVpGQTFKQW5RSURaUFZTbUI0VlZfUG5maEZEY3FNb3owek85bGQ2a2dLTTJHbU52MFp4aTBYaHZNR0Y1Q0R3bDVzaDFGWjhoQmllZkVORFFXNGpFQQ?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-02",
+      "title": "蔣萬安之子蔣得立錄取交換生被稱特權 她嘆：名人小孩不能優秀？",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5saFZ3N1V5WFllMkpEY3dFODNCOWJBQjVIQXRjYkcwZ01PX0dWRmUwYWxHY0EyakYxRHB1bG54bzlpVUdUWTR3Smc5Q3NxYXNBaGY40gFYQVVfeXFMTTVfT0xsZ1FNQW1hYzVUd1ZheXozemtSZVZzc3JUZUhzYXc2NktzU0pYcUo0d3pGUmZtbGdsY3M4QnJHZEZNNzF3RXVUMmFJanpqMUZvc2pFNA?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-02",
+      "title": "蔣萬安兒赴美交換挨批特權棄補助 王鴻薇：蘇巧慧妹也該退國發基金",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE52UGVZRG9aZG9LcUhjT2ZCY1VSS0dVTWNvQVBocHJuaWVuM1RNZkZhaExnQVQ5N3ZXa2ZFa2R3OWdFTW1qU29GRlRpb2o5NnZh0gFWQVVfeXFMTWJrMEFPQlJTdmhoMGUtbnJYLUxSbVA0YjNYVlVHc1hIVHRyMm5DdUxfd25iWUYzbzNLU011UnpJOGV3TDFaWlplajRsY1k3QzJJSU82Y2c?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-01",
+      "title": "考上建中就赴美！兒子拿補助出國惹議 蔣萬安證實：他有1國籍",
+      "url": "https://news.google.com/rss/articles/CBMi_gJBVV95cUxPNkZBVzVXeTRydmhSamoxNVFqcmc3MGpUX2pQRXIwYUNHYXQwaFk2cVFsd3ExNWNOb1gzdGtWTlJNM1NIY1owanBJQ2hVSWVSSmFJLVRIRV9nUVdjNndfOENKVHBla2R5NVp6U1lzQ1FfMWFwdHJpZlBDRTJUVmVzNmxMeVJoMzJlZ1NmNndkQU1PQXQ0V0ttVk41MVJSTGlzZ3VUZG1zVUYzbXR0ZzBVZEhqRUpEUDRLY2F3bmYxUE90a0RwaFFXczNlbnloWXluR0FYT25VQW02Yi1hQ0diSUxtV2UwQkVlbUJCTzBUcTlfU1E2WkNqV0x0b29FTEV2MlBYaW1LNHF6QlJpdEpOZXJidGpibjRFVzFrcUU1RkQ5djZhM2VkcnQyaHRiS2lhdlBDZnc4RXpJamJHMElXSzByejNKOXNmT3RNb0wzLUZOMFJWQS1zdGhxU2s0XzVuSHBoQWJ5NFp4WTVDYVBjTFFVZ1ViQi1mc2tqN2h3?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
     {
       "date": "2026-09-03",
       "title": "放棄建中赴美惹議！蔣萬安兒拒領補助 市府挨轟5爭議曝光",
