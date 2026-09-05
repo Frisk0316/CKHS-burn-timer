@@ -1,8 +1,8 @@
 {
   "last_incident": "2026-09-03T00:00:00+08:00",
   "last_incident_title": "自動偵測：蔣萬安子交換生風波炎上　黃揚明：這種天真證明還沒要選總統",
-  "auto_updated": true,
-  "last_updated": "2026-09-04T14:51:02.613251+08:00",
+  "auto_updated": false,
+  "last_updated": "2026-09-05T14:35:58.967467+08:00",
   "incidents": [
     {
       "date": "2025-12-31",
@@ -134,6 +134,48 @@
     }
   ],
   "recent_news": [
+    {
+      "date": "2026-09-04",
+      "title": "蔣大寶特權疑雲燒不停！殷瑋反控「國家機器」查建中　沈伯洋約戰蔣萬安「辯論越多越好」 陳其邁補刀：別問A答B！衝著1B來！「整頓霸凌者佀廣洋」登記　超狂政見「百位女優夜市團」",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1hX2RRTDEyd0pWT1cwOTdhZWJ1MFdwQTZXR25HSHkyUDFCNFNuQlNuTEpmSmtGallCQ1BEdnllY2FrRWxXMXlUOVRWekFaNjhqZGfSAVdBVV95cUxQVzN3WEV3amNMWE1ZREdMdktKVnNKN0dpdWhPM1BqY05Jc2RmYzJncmxGTmU0SWw2clRKdXdiQ3U2cUw2RU5veHFTbHNHWHdDc21memliVzQ?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-04",
+      "title": "蔣大寶特權疑雲燒不停！殷瑋反控「國家機器」查建中　沈伯洋約戰蔣萬安「辯論越多越好」 陳其邁補刀：別問A答B！衝著1B來！「整頓霸凌者佀廣洋」登記　超狂政見「百位女優夜市團」",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBNN3Uxc1NrR2FKRGVxZ0xISVdLT0VaQ2ozVUwtMU9ZSDZvMjFOc1hIaUdfZGRSVFVXMXdnR2VJbWpralZVMV91Uk1Nek9ZVUtMd3pqRjVoY3NBNE5Gb2Yzc1ZWcjZXemZGRFhJ0gFrQVVfeXFMUE03dTFzU2tHYUpEZXFnTEhJV0tPRVpDajNVTC0xT1lINm8yMU5zWEhpR19kZFJUVVcxd2dHZUltamtqVlUxX3VSTU16T1lVS0x3empGNWhjc0E0TkZvZjNzVlZyNld6ZkZEWEk?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-04",
+      "title": "蔣大寶特權疑雲燒不停！殷瑋反控「國家機器」查建中　沈伯洋約戰蔣萬安「辯論越多越好」 陳其邁補刀：別問A答B！衝著1B來！「整頓霸凌者佀廣洋」登記　超狂政見「百位女優夜市團」",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBXM3dYRXdqY0xYTVlER0x2S0pWc0o3R2l1aE8zUGpjTklzZGZjMmdybEZOZTRJbDZyVEp1d2JDdTZxTDZFTm94cVNsc0dYd0NzbWZ6aWJXNNIBV0FVX3lxTFBXM3dYRXdqY0xYTVlER0x2S0pWc0o3R2l1aE8zUGpjTklzZGZjMmdybEZOZTRJbDZyVEp1d2JDdTZxTDZFTm94cVNsc0dYd0NzbWZ6aWJXNA?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-04",
+      "title": "兒赴美交換惹議！洪婉臻逼問願不願意自請調查　蔣萬安：政風處可以說明",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9jRlZoeVNxXzd6YUxoMkhrcXFYNWh0WVdEbjExZUEycDlmbkJ6aHk1UVEtNjVQbzJ6eVJqQTNRVE9TSVliQi1wc9IBTEFVX3lxTFBDLXdfY3ZhYm5NQ1NEbDI1dEtaNjQ2Mk5iMklXMVdDNGlqQzhEMHE0dlZiZmJrdEc0YjA2blpuSnA3Zi1ERG9lQTVqWXE?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-03",
+      "title": "討論牆 | 考上建中就休學！兒子拿補助出國惹議 蔣萬安證實：他有1國籍",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5VX1JwUlJWMWJvVjYyOUdQbmh6MHJaUGtNMVZfR2VCN1kydEw1WnBpdGpfV0pJYWdOUVBjQXJFMlFsVWU1c1RqSHBZZ3dNMG41Z2c5eEozQmVjcFU4bTlHTjl1Y3k?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
+    {
+      "date": "2026-09-01",
+      "title": "考上建中就休學！兒子拿補助出國惹議 蔣萬安證實：他有1國籍",
+      "url": "https://news.google.com/rss/articles/CBMihANBVV95cUxPd0hyTFp0Rkx3TndseEpwamdHaXVyTHNuSVpwbUZFcUx5dHduTEhIOFlhZGd1Q1p0Q3JHa0VKdjBxbDRuSnJCV0YwLVlHZUwxMzl4MDRreFZpVy01OFptb0NvdlFOaWM2bmNvT1FQd2t6MnVnYTFWVnBzdXZVWDlDN1RrVVlMWGliZk9pTmprZTdMQVBZb2JMbzlQZHBtQ0t1SDN3YUJfQUM5endjTXZaUVNBdW5VTVFrNEZoblFhMWxBWUJocjBsLUFHcU1FNkpQbmJFd3NEM0N1YXRGWjQzaVk3N2tzYk9OWkkxZGZQZ29mb0hFbnRxSWpHdENpdC03dEZyMGFHWS1mZVNTT0RkTDNDemV4czhSVTFjNGdfRG1tQVo4Z3UtQ1NjSm5hend1SGUyNnFPaFF2dWRMbEVDYnFTYU9zM0JlLTlBejlRbVFYNkY3UnlKeFYzbzNvMGpEOVJ2NnF4SDQxOThRMTJCLW1EUmlvQWI0WTQ1cUY2TmpVUXVC?oc=5",
+      "source": "google.com",
+      "high_confidence": false
+    },
     {
       "date": "2026-09-03",
       "title": "蔣萬安子交換生風波炎上　黃揚明：這種天真證明還沒要選總統",
